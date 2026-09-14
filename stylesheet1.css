@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    ), url(/Imagens/ufc.jpeg);
+      background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.header {
+    height: 68px;
+    width: 100%;
+    background:linear-gradient(90deg, rgba(18, 4, 39, 1) 30%, rgba(96, 24, 150, 1) 70%, rgba(150, 83, 201, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8.5%;
+    position: relative;
+    z-index: 10;
+}
+.logo-area {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-area img {
+    width: 145px;
+    height: 161px;
+    object-fit: contain;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.brand span {
+    font-size: 5px;
+    color: #c8c8c8;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    width: 65px;
+}
+
+.menu a {
+    color: #d8d3dc;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+#menu1{
+    margin-left: 900px;
+}
+.menu a:hover {
+    color: #b653e5;
+}
+#pesquisar{
+    width: 570px;
+    height: 30px;
+    border-radius: 55px;
+    justify-content: center;
+}
+#vdo {
+    margin-top: 20px;
+    display: block;
+    width: min(100%, 1280px);
+    height: auto;
+    margin-left:-320px;
+   
+}
+h1{
+    margin-top:20px;
+    margin-left:155px;
+}

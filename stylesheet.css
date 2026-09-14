@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image:url(/Imagens/img\ certa.jpg);
+      background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.header {
+    height: 68px;
+    width: 100%;
+    background:linear-gradient(90deg, rgba(18, 4, 39, 1) 30%, rgba(96, 24, 150, 1) 70%, rgba(150, 83, 201, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8.5%;
+    position: relative;
+    z-index: 10;
+}
+.logo-area {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-area img {
+    width: 55px;
+    height: 61px;
+    object-fit: contain;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.brand span {
+    font-size: 5px;
+    color: #c8c8c8;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    width: 65px;
+}
+
+.menu a {
+    color: #d8d3dc;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+#menu1{
+    margin-left: 900px;
+}
+.menu a:hover {
+    color: #b653e5;
+}
+.btn-login {
+    background: #a74bd2;
+    color: #16091f !important;
+    padding: 7px 15px;
+    border-radius: 9px;
+    font-weight: normal !important;
+}
+.btn-cadastro {
+    border: 3px solid #dedbe0;
+    padding: 4px 12px;
+    border-radius: 9px;
+    font-weight: normal !important;
+}
+.hero {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    background-image: url("playmash-fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(10, 0, 22, 0.08);
+
+    pointer-events: none;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 80px;
+}
+.hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 56px;
+    font-weight: normal;
+
+    line-height: 1;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    margin-top: 8px;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    color: #eee;
+
+    text-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.start-button {
+    margin-top: 20px;
+
+    width: 40%;
+    min-width: 400px;
+    max-width: 500px;
+
+    height: 101px;
+
+    background: #120020;
+
+    border-radius: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 29px;
+    font-weight: normal;
+
+    transition:
+        transform 0.25s,
+        background 0.25s,
+        box-shadow 0.25s;
+}
+
+.start-button:hover {
+    transform: scale(1.03);
+
+    background: #1b002f;
+
+    box-shadow:
+        0 0 25px rgba(177, 67, 230, 0.35);
+}
+
+.start-button:active {
+    transform: scale(0.98);
+}
+
+.footer {
+    height: 44px;
+
+    background: #110020;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer img {
+    width: 65px;
+    height: 26px;
+
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 30px;
+    }
+
+    .menu {
+        gap: 20px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .start-button {
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .header {
+        height: auto;
+
+        padding: 10px 20px;
+
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo-area {
+        height: 55px;
+    }
+
+    .menu {
+        width: 100%;
+
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .hero-content {
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .start-button {
+        min-width: 280px;
+        width: 75%;
+        height: 80px;
+
+        font-size: 24px;
+    }
+
+    .footer {
+        height: 40px;
+    }
+}
+#logo{width: 235px;
+height: auto;}
