@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barra de pesquisa</title>
+    <link rel="stylesheet" href="bpesquisa.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+        </div>
+
+        <nav class="menu" id="menu1">
+            <div class="buscar">
+                <input type="text" id="inputBusca" onkeyup="filtrar()" placeholder="O que você procura?">
+                <ul id="listaPesquisa"></ul>
+            </div>
+
+            <button id="cartBtn" class="cart-wrap" type="button" aria-label="Carrinho de compras">
+                <img id="cartIcon" src="carrinho.png" alt="Carrinho de compras">
+                <span id="cartBadge" class="badge">!</span>
+            </button>
+
+            <button id="perfilBtn" class="perfil-btn" type="button" aria-label="Perfil">
+                <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil">
+            </button>
+        </nav>
+    </header>
+
+    <main class="catalogo">
+        <aside class="filtros-panel">
+            <div class="panel-header">
+                <h2>Filtros</h2>
+                <button type="button" class="btn-limpar" id="btnLimpar">Limpar filtros</button>
+            </div>
+
+            <div class="filter-group">
+                <h3>Categoria</h3>
+                <label class="check-item">
+                    <input type="checkbox" value="esporte" data-filter="category">
+                    <span>Esporte</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" value="acao" data-filter="category">
+                    <span>Ação</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" value="fps" data-filter="category">
+                    <span>FPS</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" value="simulacao" data-filter="category">
+                    <span>Simulação</span>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Faixa de preço</h3>
+                <label class="check-item">
+                    <input type="checkbox" value="0-100" data-filter="price">
+                    <span>Até R$ 100</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" value="101-250" data-filter="price">
+                    <span>R$ 101 - R$ 250</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" value="251-400" data-filter="price">
+                    <span>R$ 251 - R$ 400</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" value="401-9999" data-filter="price">
+                    <span>Acima de R$ 400</span>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Marca</h3>
+                <div id="brandFilters" class="brand-filters"></div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Ordenar por</h3>
+                <select id="sortOrder" class="sort-select">
+                    <option value="relevancia">Relevância</option>
+                    <option value="menor-preco">Menor preço</option>
+                    <option value="maior-preco">Maior preço</option>
+                    <option value="nome">Nome</option>
+                </select>
+            </div>
+        </aside>
+
+        <section class="catalogo-conteudo">
+            <div class="toolbar">
+                <div class="resultado-meta">
+                    <span id="countProdutos">0</span> produtos
+                </div>
+            </div>
+
+            <div class="produtos" id="listaProdutos">
+                <article class="produto" data-category="esporte" data-brand="EA SPORTS" data-price="359.99" data-name="EA SPORTS UFC 6">
+                    <h2>EA SPORTS UFC 6</h2>
+                    <img id="ufc6" src="ufc6bpesq.webp" alt="EA SPORTS UFC 6">
+                    <p class="preco">R$ 359,99</p>
+                    <button class="add-cart" type="button" data-nome="EA SPORTS UFC 6">Adicionar ao carrinho</button>
+                </article>
+
+                <article class="produto" data-category="esporte" data-brand="EA" data-price="349.99" data-name="EA FC 27">
+                    <h2>EA FC 27</h2>
+                    <img id="eafc27" src="eafc27.jpg" alt="EA FC 27">
+                    <p class="preco">R$ 349,99</p>
+                    <button class="add-cart" type="button" data-nome="EA FC 27">Adicionar ao carrinho</button>
+                </article>
+
+                <article class="produto" data-category="esporte" data-brand="2K Games" data-price="399.99" data-name="NBA 2K26">
+                    <h2>NBA 2K26</h2>
+                    <img id="nba26" src="nba2k26.jpg" alt="NBA 2K26">
+                    <p class="preco">R$ 399,99</p>
+                    <button class="add-cart" type="button" data-nome="NBA 2K26">Adicionar ao carrinho</button>
+                </article>
+
+                <article class="produto" data-category="fps" data-brand="Riot Games" data-price="0" data-name="VALORANT">
+                    <h2>VALORANT</h2>
+                    <img id="val" src="valorant.webp" alt="VALORANT">
+                    <p class="preco">Grátis</p>
+                    <button class="add-cart" type="button" data-nome="VALORANT">Adicionar ao carrinho</button>
+                </article>
+
+                <article class="produto" data-category="acao" data-brand="Rockstar Games" data-price="349.99" data-name="GTA VI">
+                    <h2>GTA VI</h2>
+                    <img id="gta" src="gta6.png" alt="GTA VI">
+                    <p class="preco">R$ 349,99</p>
+                    <button class="add-cart" type="button" data-nome="GTA VI">Adicionar a lista de desejos</button>
+                </article>
+
+                <article class="produto" data-category="simulacao" data-brand="Red Dot Games" data-price="23.87" data-name="Car Mechanic Simulator">
+                    <h2>Car Mechanic Simulator</h2>
+                    <img id="cms26" src="cobuk6.webp" alt="Car Mechanic Simulator">
+                    <p class="preco">R$ 23,87</p>
+                    <button class="add-cart" type="button" data-nome="Car Mechanic Simulator">Adicionar ao carrinho</button>
+                </article>
+            </div>
+
+            <div id="noResults" class="no-results hidden">Nenhum produto encontrado.</div>
+        </section>
+    </main>
+
+    <script src="pesq.js"></script>
+
+    <script>
+        const CART_KEY = "playmash_cart";
+
+        function getCart() {
+            try {
+                return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+            } catch {
+                return [];
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            const badge = document.getElementById("cartBadge");
+            if (badge) {
+                const total = cart.reduce((s, item) => s + (Number(item.qty) || 1), 0);
+                badge.textContent = total;
+            }
+        }
+
+        function addToCart(item) {
+            const cart = getCart();
+            const existing = cart.find(i => i.id === item.id);
+
+            if (existing) {
+                existing.qty = (Number(existing.qty) || 1) + (Number(item.qty) || 1);
+            } else {
+                cart.push({ ...item, qty: Number(item.qty) || 1 });
+            }
+
+            saveCart(cart);
+            alert(`${item.title} adicionado ao carrinho`);
+        }
+
+        document.querySelectorAll(".add-cart").forEach((button) => {
+            button.addEventListener("click", () => {
+                const produto = button.closest(".produto");
+                const item = {
+                    id: (produto.dataset.name || button.dataset.nome || "produto").toLowerCase().replace(/\s+/g, "-"),
+                    title: produto.dataset.name || button.dataset.nome || "Produto",
+                    price: Number(produto.dataset.price || 0),
+                    img: produto.querySelector("img")?.src || ""
+                };
+
+                addToCart(item);
+            });
+        });
+
+        document.getElementById("cartBtn").addEventListener("click", () => {
+            window.location.href = "carrinho.html";
+        });
+
+        document.getElementById("perfilBtn").addEventListener("click", () => {
+            window.location.href = "confperfil.html";
+        });
+    </script>
+</body>
+</html>

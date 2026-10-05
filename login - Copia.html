@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sessão</title>
+    <link rel="stylesheet" href="folha_login.css">
+</head>
+<body>
+<header class="header">
+
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+
+        <nav class="menu" id="menu1">
+            <a href="tinh.html">ajuda</a>
+            <a href="intex.html">Recursos</a>
+
+            <a href="login.html" class="btn-login">Log-in</a>
+            <a href="criar.html" class="btn-cadastro">Cadastro</a>
+        </nav>
+
+    </header>
+    <div class="container">
+    <h1>Login</h1>
+    <form id="formcadastro">
+        <input type="text" id="email" name="email" placeholder="email" required>
+        <input type="password" id="senha" name="senha" placeholder="senha" required>
+        <button id="botao_logar" type="submit">Logar</button>
+    </form>
+   </div>
+   <script>
+       document.getElementById("formcadastro").addEventListener("submit", function(event) {
+           event.preventDefault();
+           window.location.href = "inicial.html";
+       });
+   </script>
+</body>

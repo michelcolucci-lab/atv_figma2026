@@ -1,0 +1,233 @@
+body{
+    background-image: url("fundo\ de\ imgam.jp.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover;       
+    background-position: center;   
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    position: absolute;
+    color: aliceblue;
+    left: 50%;
+    top: 200px;
+    transform: translateX(-50%);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 48px;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+#nome{
+  position: absolute;
+  top: 305px;
+  left: 49%;
+  transform: translateX(-455px);
+  font-size: 20px;
+  border: 6px solid rgb(83, 11, 150);
+  border-radius: 30px;
+  width: 450px;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(83, 11, 150, 0.2);
+}
+
+#nome:focus {
+    outline: none;
+    border-color: rgb(150, 83, 201);
+    box-shadow: 0 6px 20px rgba(83, 11, 150, 0.4);
+    background-color: #fff;
+}
+#sobrenome{
+    position: absolute;
+    top: 305px;
+    left: 51%;
+    transform: translateX(5px);
+    font-size: 20px;
+    border: 6px solid rgb(83, 11, 150);
+    border-radius: 30px;
+    width: 450px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(83, 11, 150, 0.2);
+}
+
+#sobrenome:focus {
+    outline: none;
+    border-color: rgb(150, 83, 201);
+    box-shadow: 0 6px 20px rgba(83, 11, 150, 0.4);
+    background-color: #fff;
+}
+#email{
+    position: absolute;
+    top: 375px;
+    left: 50%;
+    transform: translateX(-480px);
+    font-size: 20px;
+    border: 6px solid rgb(83, 11, 150);
+    border-radius: 30px;
+    width: 950px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(83, 11, 150, 0.2);
+}
+
+#email:focus {
+    outline: none;
+    border-color: rgb(150, 83, 201);
+    box-shadow: 0 6px 20px rgba(83, 11, 150, 0.4);
+    background-color: #fff;
+}
+#senha{
+    position: absolute;
+    top: 445px;
+    left: 49%;
+    transform: translateX(-455px);
+    font-size: 20px;
+    border: 6px solid rgb(83, 11, 150);
+    border-radius: 30px;
+    width: 450px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(83, 11, 150, 0.2);
+}
+
+#senha:focus {
+    outline: none;
+    border-color: rgb(150, 83, 201);
+    box-shadow: 0 6px 20px rgba(83, 11, 150, 0.4);
+    background-color: #fff;
+}
+#confirmar_senha{
+    position: absolute;
+    top: 445px;
+    left: 51%;
+    transform: translateX(5px);
+    font-size: 20px;
+    border: 6px solid rgb(83, 11, 150);
+    border-radius: 30px;
+    width: 450px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(83, 11, 150, 0.2);
+}
+
+#confirmar_senha:focus {
+    outline: none;
+    border-color: rgb(150, 83, 201);
+    box-shadow: 0 6px 20px rgba(83, 11, 150, 0.4);
+    background-color: #fff;
+}
+#botao_criar_conta{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 535px;
+    display: block;
+    font-size: 20px;
+    border: 6px solid rgb(83, 11, 150);
+    border-radius: 30px;
+    padding: 10px 24px;
+    background-color: rgb(83, 11, 150);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(83, 11, 150, 0.3);
+}
+
+#botao_criar_conta:hover {
+    background-color: rgb(150, 83, 201);
+    border-color: rgb(150, 83, 201);
+    box-shadow: 0 6px 20px rgba(83, 11, 150, 0.5);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+#botao_criar_conta:active {
+    transform: translateX(-50%) translateY(0);
+}
+
+input::placeholder {
+    color: rgba(83, 11, 150, 0.5);
+    font-style: italic;
+}
+
+input {
+    font-family: inherit;
+}
+.header {
+    height: 68px;
+    width: 100%;
+    background:linear-gradient(90deg, rgba(18, 4, 39, 1) 30%, rgba(96, 24, 150, 1) 70%, rgba(150, 83, 201, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8.5%;
+    position: relative;
+    z-index: 10;
+}
+.logo-area {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-area img {
+    width: 55px;
+    height: 61px;
+    object-fit: contain;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.brand span {
+    font-size: 5px;
+    color: #c8c8c8;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    width: 65px;
+}
+
+.menu a {
+    color: #d8d3dc;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+#menu1{
+    margin-left: 900px;
+}
+.menu a:hover {
+    color: #b653e5;
+}
+.btn-login {
+    background: #a74bd2;
+    color: #16091f !important;
+    padding: 7px 15px;
+    border-radius: 9px;
+    font-weight: normal !important;
+}
+.btn-cadastro {
+    border: 3px solid #dedbe0;
+    padding: 4px 12px;
+    border-radius: 9px;
+    font-weight: normal !important;}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playmash - Pagamento por Cartão</title>
+  <link rel="stylesheet" href="pagamentostyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <img id="logo" src="img logo.png" alt="Logo Playmash" />
+    </div>
+
+    <nav class="menu" id="menu1">
+      <button id="cartBtn" class="cart-wrap" type="button" aria-label="Carrinho de compras">
+        <img id="cartIcon" src="carrinho.png" alt="Carrinho de compras" />
+        <span id="cartBadge" class="badge">!</span>
+      </button>
+
+      <button id="perfilBtn" class="perfil-btn" type="button" aria-label="Perfil">
+        <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil" />
+      </button>
+    </nav>
+  </header>
+
+  <main class="content-area">
+    <div class="modal-card">
+      <form id="form-cartao">
+        <div class="input-group card-input">
+          <input type="text" id="num-cartao" placeholder="Número do Cartão" required />
+          <i class="fa-regular fa-credit-card input-icon"></i>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <input type="text" placeholder="Nome do Titular" required />
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <input type="text" placeholder="Data de Validade" id="validade" maxlength="5" required />
+          </div>
+          <div class="input-group">
+            <input type="text" placeholder="CVV" id="cvv" maxlength="4" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="text" placeholder="Endereço de Cobrança" required />
+        </div>
+
+        <div class="parcelas-section">
+          <label class="section-label">Parcelas</label>
+          <div class="select-wrapper">
+            <select id="select-parcelas">
+              <option value="1">1x sem juros</option>
+              <option value="2">2x sem juros</option>
+              <option value="3">3x sem juros</option>
+              <option value="4">4x com juros</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="total-banner">
+          <span>Total:</span>
+          <span class="total-price" id="total-display">R$ 0,00</span>
+        </div>
+
+        <button type="submit" class="btn-submit" id="btn-finalizar-cartao">Realizar compra</button>
+
+        <div class="modal-footer">
+          <a href="#" class="link-ajuda">ajuda</a>
+          <a href="teladepagamento.html" class="link-sair">sair</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const total = Number(localStorage.getItem("playmash_total") || 0);
+
+    const totalDisplay = document.getElementById("total-display");
+    if (totalDisplay) {
+      totalDisplay.textContent = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      }).format(total);
+    }
+
+    document.getElementById("cartBtn").addEventListener("click", () => {
+      window.location.href = "carrinho.html";
+    });
+
+    document.getElementById("perfilBtn").addEventListener("click", () => {
+      window.location.href = "confperfil.html";
+    });
+
+    document.getElementById("form-cartao").addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert("Compra realizada com cartão!");
+      window.location.href = "inicial.html";
+    });
+  </script>
+</body>
+</html>

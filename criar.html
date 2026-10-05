@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar-se</title>
+    <link rel="stylesheet" href="folha_criar.css">
+</head>
+<body>
+<header class="header">
+
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+
+        <nav class="menu" id="menu1">
+            <a href="tinh.html">ajuda</a>
+            <a href="intex.html">Recursos</a>
+
+            <a href="login.html" class="btn-login">Log-in</a>
+            <a href="criar.html" class="btn-cadastro">Cadastro</a>
+        </nav>
+
+    </header>
+    <div class="container">
+    <h1>Cria sua conta</h1>
+    <form id="formcadastro">
+        <input type="text" id="nome" name="nome" placeholder="nome" required>
+        <input type="text" id="sobrenome" name="sobrenome" placeholder="sobrenome" required>
+        <input type="text" id="email" name="email" placeholder="email" required>
+        <input type="password" id="senha" name="senha" placeholder="senha" required>
+        <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="confirmar senha" required>
+        <button id="botao_criar_conta" type="submit" href="inicial.html">Criar conta</button>
+    </form>
+   </div>
+</body>
+<script>
+    const formcadastro = document.getElementById("formcadastro");
+
+    formcadastro.addEventListener("submit", function(event){
+        const senha = document.getElementById("senha").value;
+        const confirma_senha = document.getElementById("confirmar_senha").value;
+
+        if (senha !== confirma_senha) {
+            event.preventDefault();
+            alert("As senhas nao conferem, tente novamente.");
+            return;
+        }
+
+        event.preventDefault();
+        window.location.href = "inicial.html";
+    });
+</script>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dev moont</title>
+    <link rel="stylesheet" href="dev2.css">
+
+    <header class="header">
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+        </div>
+       
+        <nav class="menu" id="menu1">
+            <button class="icon-button" id="bibliotecaBtn" type="button" aria-label="Biblioteca">
+                <img id="biblioteca" src="istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca">
+            </button>
+            <button class="icon-button" id="carrinhoBtn" type="button" aria-label="Carrinho">
+                <img id="carrinhoIcon" src="carrinho.png" alt="carrinho">
+            </button>
+            <button class="icon-button" id="perfilBtn" type="button" aria-label="Perfil">
+                <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil">
+            </button>
+        </nav>
+    </header>
+
+<body>
+
+    </header>
+
+    <main>
+
+        <section class="painel">
+            <div class="cabecalho">
+
+                <div>
+                    <h2>Meus jogos</h2>
+                    <p>Monitore os jogos enviados para a Playmash</p>
+                </div>
+
+                <a href="dev.html" class="botao-novo">
+                    + Adicionar jogo
+                </a>
+
+            </div>
+
+            <div class="estatisticas">
+
+                <div class="card-estatistica">
+
+                    <div class="icone">
+                        🎮
+                    </div>
+
+                    <div>
+                        <span>Total de jogos</span>
+                        <strong id="totalJogos">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card-estatistica">
+
+                    <div class="icone">
+                        ⏳
+                    </div>
+
+                    <div>
+                        <span>Em avaliação</span>
+                        <strong id="emAvaliacao">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card-estatistica">
+
+                    <div class="icone">
+                        ✅
+                    </div>
+
+                    <div>
+                        <span>Aprovados</span>
+                        <strong id="aprovados">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card-estatistica">
+
+                    <div class="icone">
+                        ❌
+                    </div>
+
+                    <div>
+                        <span>Recusados</span>
+                        <strong id="recusados">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="filtros">
+
+                <div class="pesquisa">
+
+                    <span>🔎</span>
+
+                    <input
+                        type="text"
+                        id="pesquisa"
+                        placeholder="Pesquisar jogo..."
+                    >
+
+                </div>
+
+
+                <select id="filtroStatus">
+
+                    <option value="todos">
+                        Todos os status
+                    </option>
+
+                    <option value="Em avaliação">
+                        Em avaliação
+                    </option>
+
+                    <option value="Aprovado">
+                        Aprovado
+                    </option>
+
+                    <option value="Recusado">
+                        Recusado
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div id="listaJogos" class="lista-jogos">
+
+
+            </div>
+
+
+            <div id="semJogos" class="sem-jogos">
+
+                <div>
+                    🎮
+                </div>
+
+                <h3>Nenhum jogo encontrado</h3>
+
+                <p>
+                    Você ainda não cadastrou nenhum jogo.
+                </p>
+
+                <a href="dev.html">
+                    Adicionar meu primeiro jogo
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="dev.js"></script>
+    <script>
+        document.getElementById("bibliotecaBtn").addEventListener("click", () => {
+            window.location.href = "biblioteca.html";
+        });
+
+        document.getElementById("carrinhoBtn").addEventListener("click", () => {
+            window.location.href = "carrinho.html";
+        });
+
+        document.getElementById("perfilBtn").addEventListener("click", () => {
+            window.location.href = "confperfil.html";
+        });
+    </script>
+
+</body>
+
+</html>

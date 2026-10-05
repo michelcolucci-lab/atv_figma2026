@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Carrinho — Playmash</title>
+    <link rel="stylesheet" href="carrinho.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+        </div>
+       
+        <nav class="menu" id="menu1">
+            <button class="icon-button" aria-label="Biblioteca">
+                <img id="biblioteca" src="istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca">
+            </button>
+            <button class="icon-button" aria-label="Carrinho">
+                <img id="carrinhoIcon" src="carrinho.png" alt="carrinho">
+            </button>
+        </nav>
+    </header>
+
+    <main class="carrinho-wrap">
+        <section class="visual-area">
+         
+        </section>
+
+        <aside class="sidebar">
+            <h2>Carrinho</h2>
+            <div id="itensList" class="itens-list">
+                
+            </div>
+
+            <div class="subtotal">
+                <div>Subtotal</div>
+                <div id="subtotalValue">R$ 0,00</div>
+            </div>
+
+            <label class="terms">
+                <input id="aceito" type="checkbox"> Aceito os termos do Acordo de Assinatura da Playmash.
+            </label>
+
+            <button id="comprarBtn" class="comprar">Comprar</button>
+        </aside>
+    </main>
+
+    <script>
+        const STORAGE_KEY = "playmash_cart";
+
+        function formatBRL(v){
+            return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function getCart(){
+            try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }
+            catch { return []; }
+        }
+
+        function saveCart(cart){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
+
+        function renderCart(){
+            const list = document.getElementById("itensList");
+            const subtotalEl = document.getElementById("subtotalValue");
+            const cart = getCart();
+            list.innerHTML = "";
+
+            if(cart.length === 0){
+                list.innerHTML = "<p class='vazio'>Seu carrinho está vazio.</p>";
+                subtotalEl.textContent = formatBRL(0);
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach((item, idx) => {
+                subtotal += (item.price || 0) * (item.qty || 1);
+                const div = document.createElement("div");
+                div.className = "item";
+                div.innerHTML = `
+                    <div class="item-thumb"><img src="${item.img || 'ftperfil.png'}" alt="${item.title}"></div>
+                    <div class="item-info">
+                        <div class="title">${item.title}</div>
+                        <div class="price">${formatBRL(item.price || 0)}</div>
+                    </div>
+                    <button class="remove" data-idx="${idx}">Remover</button>
+                `;
+                list.appendChild(div);
+            });
+
+            subtotalEl.textContent = formatBRL(subtotal);
+
+            document.querySelectorAll('.remove').forEach(b => b.onclick = e => {
+                const i = +e.currentTarget.dataset.idx;
+                const cart = getCart();
+                cart.splice(i,1);
+                saveCart(cart);
+                renderCart();
+            });
+        }
+        document.getElementById('comprarBtn').addEventListener('click', () => {
+            if(!document.getElementById('aceito').checked){
+                alert('Você precisa aceitar os termos para comprar.');
+                return;
+            }
+            const cart = getCart();
+            if(cart.length === 0){ alert('Carrinho vazio.'); return; }
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += (item.price || 0) * (item.qty || 1);
+            });
+            localStorage.setItem("playmash_total", String(subtotal));
+            window.location.href = "teladepagamento.html";
+        });
+
+        window.addEventListener('storage', (e) => {
+            if(e.key === STORAGE_KEY) renderCart();
+        });
+
+        const libraryBtn = document.querySelector('#menu1 button[aria-label="Biblioteca"]');
+        if (libraryBtn) {
+            libraryBtn.addEventListener('click', () => {
+                window.location.href = 'biblioteca.html';
+            });
+        }
+
+        const cartBtn = document.querySelector('#menu1 button[aria-label="Carrinho"]');
+        if (cartBtn) {
+            cartBtn.addEventListener('click', () => {
+                window.location.href = 'carrinho.html';
+            });
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>

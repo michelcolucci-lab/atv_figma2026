@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca | Playmash</title>
+    <link rel="stylesheet" href="biblioteca.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+        </div>
+
+        <nav class="menu" id="menu1">
+            <button id="cartBtn" class="cart-wrap" type="button" aria-label="Carrinho de compras">
+                <img id="cartIcon" src="carrinho.png" alt="Carrinho de compras">
+                <span id="cartBadge" class="badge">!</span>
+            </button>
+
+            <button id="perfilBtn" class="perfil-btn" type="button" aria-label="Perfil">
+                <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil">
+            </button>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Coleção</p>
+                <h1>Minha biblioteca</h1>
+            </div>
+
+            <label class="search-box" aria-label="Buscar na biblioteca">
+                <span class="search-icon">⌕</span>
+                <input id="librarySearch" type="search" placeholder="Pesquisar na biblioteca">
+            </label>
+        </section>
+
+        <section class="library-panel">
+            <div class="panel-top">
+                <h2>Jogos na sua coleção</h2>
+            </div>
+
+            <div id="gamesGrid" class="games-grid"></div>
+        </section>
+    </main>
+
+    <script src="biblioteca.js"></script>
+</body>
+</html>

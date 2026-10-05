@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de perfil</title>
+    <link rel="stylesheet" href="confperfil.css">
+</head>
+<body>
+   
+    <header class="header">
+        <div class="logo-area">
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+        </div>
+
+        <nav class="menu" id="menu1">
+            <div class="buscar">
+        <input type="text" id="inputBusca" onkeyup="filtrar()" placeholder="O que você procura?">
+        
+        <ul id="listaPesquisa"></ul>
+    </div>
+
+            <div class="cart-wrap" aria-label="Carrinho de compras" aria-live="polite">
+                <img id="cartIcon" src="carrinho.png" alt="Carrinho de compras">
+                <span id="cartBadge" class="badge">!</span>
+            </div>
+
+            <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil">
+        </nav>
+    </header>
+   <center> <div id="cent">
+        <img id="ft" src="ftperfil.png" alt="">
+        <button id="ftperf">Editar foto de perfil</button>
+        <button id="edtcont">✏️​Editar dados da conta</button>
+        <button id="segpvc">🛡️Segurança e privacidade</button>
+        <button id="pref">☀️​🌙​Preferências</button>
+        <button id="dev">🎮Desenvolvedor</button>
+        <button id="sair" >Sair da Conta➜]</button>
+    </div></center>
+
+    <script>
+        const logout = document.getElementById("sair");
+        const devButton = document.getElementById("dev");
+
+        devButton.addEventListener("click", () => {
+            window.location.href = "dev.html";
+        });
+
+        logout.addEventListener("click", () => {
+            window.alert("prabens vc saiu da conta");
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo(a) playmash</title>
+    <link rel="stylesheet" href="folha_inical.css">
+</head>
+<body>
+   <header class="header">
+    <div class="logo-area">
+        <img id="logo" src="img logo.png" alt="Logo Playmash">
+    </div>
+    <div class="search-area">
+        <input id="search" type="text" placeholder="Oque você procura...">
+    </div>
+    <nav class="menu" id="menu1">
+        <button class="icon-button" aria-label="Biblioteca">
+            <img id="biblioteca" src="istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca de jogos">
+        </button>
+
+        <button class="icon-button" aria-label="Carrinho de compras">
+            <img id="carrinho"  src="carrinho.png" alt="carrinho de compras">
+            
+        </button>
+
+        <button class="icon-button" id="perfilBtn" type="button" aria-label="Perfil">
+            <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil">
+        </button>
+    </nav>
+</header>
+    <div class="conteiner">
+        <img id="promo" src="Captura de tela 2026-09-04 075431.png" alt="promoção">
+        <a id="preco">R$ 199,99</a>
+
+
+        <button id="compra_promo" type="button" onclick="trocarCarrinho()">Compre já</button>
+
+        <script>
+        
+            function trocarCarrinho() {
+                document.getElementById("carrinho").src = "aviso_carrinho.png";
+                document.getElementById("compra_promo").textContent = "Adicionado ao carrinho!";
+            }
+        </script>
+        
+
+        <a id="franquia">Franquia da </a> <a id="rockstar">ROCKSTAR</a> 
+        <a id="cronometro">168 horas e 00 minutos e 00 segundos</a>
+
+
+        
+        <script>
+            let tempoRestante = 168 * 60 * 60;
+            const cronometro = document.getElementById("cronometro");
+
+            const intervalo = setInterval(function () {
+                if (tempoRestante > 0) {
+                    tempoRestante--;
+
+                    const horas = Math.floor(tempoRestante / 3600);
+                    const minutos = Math.floor((tempoRestante % 3600) / 60);
+                    const segundos = tempoRestante % 60;
+
+                    cronometro.textContent =
+                        `${horas} horas e ${String(minutos).padStart(2, "0")} minutos e ${String(segundos).padStart(2, "0")} segundos`;
+                } else {
+                    clearInterval(intervalo);
+                    cronometro.textContent = "Tempo esgotado!";
+                }
+            }, 1000);
+        </script>
+
+    
+    </div>
+    
+<div class="loja_jogos">
+    <div id="ufc-id" class="ufc-conteiner">
+          
+    <button id= "ufc-button" onclick="trocarCarrinhoufc()">+ carrinho</button>
+
+
+     <script>
+        
+            function trocarCarrinhoufc() {
+                document.getElementById("carrinho").src = "aviso_carrinho.png";
+                document.getElementById("ufc-button").textContent = "no carrinho!";
+            }
+        </script>
+        
+        <img id="ufc" src="ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" alt="ufc 6">
+        <a id="preco-ufc">R$ 249,99</a>
+    </div>
+    <div id="valorat-id" class="valorat-conteiner">
+        <button id= "valorat-button" onclick="trocarCarrinhovalorat()">+ carrinho</button>
+
+        <script>
+        
+            function trocarCarrinhovalorat() {
+                document.getElementById("carrinho").src = "aviso_carrinho.png";
+                document.getElementById("valorat-button").textContent = "no carrinho!";
+            }
+        </script>
+        
+        <img id="valorant" src="valorant.webp" alt="valorant">
+        <a id="preco-valorant">R$ gratuito</a>
+    </div>
+    <div id="gta6-id" class="gta6-conteiner">
+        <button id= "gta6-button" onclick="trocarCarrinhogta6()">+ carrinho</button>
+
+        <script>
+        
+            function trocarCarrinhogta6() {
+                document.getElementById("carrinho").src = "aviso_carrinho.png";
+                document.getElementById("gta6-button").textContent = "no carrinho!";
+            }
+        </script>
+        
+        <img id="gta6" src="gta6.png" alt="gta 6">
+        <a id="preco-gta6">R$ 399,99</a>
+</div>
+</div>
+<script>
+   
+    const CART_KEY = "playmash_cart";
+
+    function getCart(){
+        try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); }
+        catch { return []; }
+    }
+    function saveCart(cart){
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        const badge = document.getElementById('cartBadge');
+        if(badge) badge.textContent = cart.reduce((s,i)=>s+(i.qty||1),0);
+    }
+
+    function addToCart(item){
+        const cart = getCart();
+        const existing = cart.find(i => i.id === item.id);
+        if(existing) existing.qty = (existing.qty||1) + (item.qty||1);
+        else cart.push({...item, qty: item.qty || 1});
+        saveCart(cart);
+        alert(`${item.title} adicionado ao carrinho`);
+    }
+
+    
+    function trocarCarrinho(){
+        addToCart({ id: "promo-001", title: "Promoção Especial", price: 199.99, img: "Captura de tela 2026-09-04 075431.png" });
+    }
+    function trocarCarrinhoufc(){
+        addToCart({ id: "ufc-006", title: "UFC 6", price: 249.99, img: "ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" });
+    }
+    function trocarCarrinhovalorat(){
+        addToCart({ id: "valorant-001", title: "Valorant", price: 0.00, img: "valorant.webp" });
+    }
+    function trocarCarrinhogta6(){
+        addToCart({ id: "gta6-001", title: "GTA 6", price: 399.99, img: "gta6.png" });
+    }
+
+    const searchInput = document.getElementById("search");
+    if(searchInput){
+        searchInput.addEventListener("focus", () => {
+            searchInput.style.transition = "all 0.2s ease";
+            setTimeout(()=> location.href = "bpesquisa.html", 200);
+        });
+    }
+(function(){
+        const cartBtn = document.querySelector('#menu1 button[aria-label="Carrinho de compras"]');
+        if(cartBtn){
+            cartBtn.addEventListener('click', () => {
+                location.href = "carrinho.html";
+            });
+            cartBtn.addEventListener('keydown', (e) => {
+                if(e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    cartBtn.click();
+                }
+            });
+        }
+    })();
+
+    document.getElementById("perfilBtn").addEventListener("click", () => {
+        window.location.href = "confperfil.html";
+    });
+</script>
+</body>
+</html>

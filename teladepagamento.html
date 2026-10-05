@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playmash - Tela de Pagamento</title>
+  <link rel="stylesheet" href="pagamentostyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <img id="logo" src="img logo.png" alt="Logo Playmash" />
+    </div>
+
+    <nav class="menu" id="menu1">
+      <button id="cartBtn" class="cart-wrap" type="button" aria-label="Carrinho de compras">
+        <img id="cartIcon" src="carrinho.png" alt="Carrinho de compras" />
+        <span id="cartBadge" class="badge">!</span>
+      </button>
+
+      <button id="perfilBtn" class="perfil-btn" type="button" aria-label="Perfil">
+        <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil" />
+      </button>
+    </nav>
+  </header>
+
+  <main class="content-area">
+    <div class="modal-card">
+      <h2>Escolha a forma de pagamento</h2>
+
+      <div class="payment-method-section">
+        <button type="button" class="btn-method" id="btn-pix">
+          <i class="fa-solid fa-cubes-stacked pix-icon"></i>
+          PIX
+        </button>
+
+        <button type="button" class="btn-method" id="btn-cartao">
+          <i class="fa-regular fa-credit-card"></i>
+          Cartão
+        </button>
+
+        <button type="button" class="btn-method" id="btn-boleto">
+          <i class="fa-solid fa-barcode"></i>
+          Boleto
+        </button>
+      </div>
+
+      <div class="total-banner">
+        <span>Total:</span>
+        <span class="total-price" id="total-display">R$ 0,00</span>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" class="link-ajuda">ajuda</a>
+        <a href="inicial.html" class="link-sair">sair</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const total = Number(localStorage.getItem("playmash_total") || 0);
+
+    const totalDisplay = document.getElementById("total-display");
+    if (totalDisplay) {
+      totalDisplay.textContent = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      }).format(total);
+    }
+
+    document.getElementById("cartBtn").addEventListener("click", () => {
+      window.location.href = "carrinho.html";
+    });
+
+    document.getElementById("perfilBtn").addEventListener("click", () => {
+      window.location.href = "confperfil.html";
+    });
+
+    document.getElementById("btn-pix").addEventListener("click", () => {
+      localStorage.setItem("playmash_metodo", "PIX");
+      window.location.href = "pagamentopix.html";
+    });
+
+    document.getElementById("btn-cartao").addEventListener("click", () => {
+      localStorage.setItem("playmash_metodo", "CARTAO");
+      window.location.href = "pagamentocartao.html";
+    });
+
+    document.getElementById("btn-boleto").addEventListener("click", () => {
+      alert("Pagamento por boleto ainda não está pronto.");
+    });
+  </script>
+</body>
+</html>
