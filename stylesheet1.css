@@ -7,12 +7,12 @@
 body {
     min-height: 100vh;
     background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-    ), url(/Imagens/ufc.jpeg);
-      background-repeat: no-repeat;
+        rgba(0, 0, 0, 0.62),
+        #101114 82vh
+    ), url(ufc.jpeg);
+    background-color: #101114;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     background-position: center; 
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -23,13 +23,14 @@ body {
 
 
 .header {
-    height: 68px;
+    min-height: 68px;
     width: 100%;
     background:linear-gradient(90deg, rgba(18, 4, 39, 1) 30%, rgba(96, 24, 150, 1) 70%, rgba(150, 83, 201, 1) 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 8.5%;
+    gap: 24px;
+    padding: 8px clamp(20px, 6vw, 96px);
     position: relative;
     z-index: 10;
 }
@@ -37,12 +38,11 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
 .logo-area img {
-    width: 145px;
-    height: 161px;
+    width: 132px;
+    height: 52px;
     object-fit: contain;
 }
 .brand {
@@ -64,8 +64,9 @@ body {
 .menu {
     display: flex;
     align-items: center;
-    gap: 43px;
-    width: 65px;
+    justify-content: flex-end;
+    gap: clamp(14px, 2.5vw, 36px);
+    width: auto;
 }
 
 .menu a {
@@ -76,26 +77,218 @@ body {
     transition: 0.25s;
 }
 #menu1{
-    margin-left: 900px;
+    margin-left: auto;
 }
 .menu a:hover {
     color: #b653e5;
 }
 #pesquisar{
-    width: 570px;
-    height: 30px;
-    border-radius: 55px;
-    justify-content: center;
+    width: min(260px, 25vw);
+    min-width: 150px;
+    height: 38px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(17, 12, 24, 0.55);
+    color: #fff;
+    font: inherit;
 }
-#vdo {
-    margin-top: 20px;
+#pesquisar::placeholder {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.pagina-jogo {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 36px 0 72px;
+    flex: 1;
+}
+
+.sobretitulo {
+    margin-bottom: 8px;
+    color: #c9a7df;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.apresentacao h1 {
+    margin: 0 0 24px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+}
+
+.apresentacao h1 span {
+    color: #d8a8f4;
+}
+
+.midias-jogo {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(220px, 0.8fr);
+    align-items: start;
+    gap: 18px;
+}
+
+.video-compra {
+    display: grid;
+    gap: 14px;
+}
+
+.video-jogo,
+.galeria-jogo img {
     display: block;
-    width: min(100%, 1280px);
-    height: auto;
-    margin-left:-320px;
-   
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background: #08090b;
 }
-h1{
-    margin-top:20px;
-    margin-left:155px;
+
+.video-jogo {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.acao-compra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background: rgba(18, 4, 39, 0.82);
+}
+
+.preco-jogo {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+#comprarJogo {
+    min-height: 44px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 6px;
+    background: #39cf67;
+    color: #101114;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#comprarJogo:hover {
+    background: #55e47e;
+    transform: translateY(-1px);
+}
+
+#comprarJogo:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+.galeria-jogo {
+    display: grid;
+    gap: 18px;
+}
+
+.galeria-jogo .capa-jogo {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.galeria-jogo .cena-jogo {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.descricao-jogo {
+    max-width: 920px;
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.descricao-jogo h2 {
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+}
+
+.descricao-jogo p {
+    margin: 0 0 16px;
+    color: #e2e0e4;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+@media (max-width: 760px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        padding: 10px 22px;
+    }
+
+    .menu {
+        gap: 14px;
+    }
+
+    .menu a {
+        font-size: 0.9rem;
+    }
+
+    #pesquisar {
+        width: min(220px, 32vw);
+    }
+
+    .midias-jogo {
+        grid-template-columns: minmax(0, 1fr) minmax(150px, 0.55fr);
+        gap: 12px;
+    }
+
+    .galeria-jogo {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px 16px;
+    }
+
+    #pesquisar {
+        width: 100%;
+    }
+
+    .pagina-jogo {
+        width: min(100% - 32px, 1240px);
+        padding-top: 28px;
+    }
+
+    .midias-jogo {
+        grid-template-columns: 1fr;
+    }
+
+    .acao-compra {
+        flex-wrap: wrap;
+    }
+
+    .galeria-jogo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .galeria-jogo .capa-jogo {
+        aspect-ratio: 4 / 5;
+    }
+
+    .descricao-jogo {
+        margin-top: 32px;
+    }
 }
