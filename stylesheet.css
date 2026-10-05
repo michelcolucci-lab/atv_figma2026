@@ -6,7 +6,7 @@
 
 body {
     min-height: 100vh;
-    background-image:url(/Imagens/img\ certa.jpg);
+    background-image:url(img\ certa.jpg);
       background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
