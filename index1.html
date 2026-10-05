@@ -3,29 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/Css/stylesheet1.css">
+    <title>EA SPORTS UFC 6 | Playmash</title>
+    <link rel="stylesheet" href="stylesheet1.css">
 </head>
 <body>
     <header class="header">
-
         <div class="logo-area">
-            <img id="logo" src="/Imagens/img logo.png" alt="Logo Playmash">
-
+            <img id="logo" src="img logo.png" alt="Logo Playmash">
+        </div>
         <nav class="menu" id="menu1">
-            <a href="/Html/ajuda.html">ajuda</a>
-            <a href="/Html/informações.html">Informações</a>
-            <a href="/Html/recursos.html">Recursos</a>
-            <input type="text" placeholder="Pesquisar..." id="pesquisar">
+            <a href="ajuda.html">ajuda</a>
+            <a href="informações.html">Informações</a>
+            <a href="recursos.html">Recursos</a>
+            <input type="search" placeholder="Pesquisar..." id="pesquisar" aria-label="Pesquisar">
         </nav>
     </header>
-    <h1> EA SPORTS UFC 6</h1>
-    <center>
-        <video id="vdo" controls>
-            <source src="/Imagens/videoplayback (1).mp4" type="video/mp4">
-        </video>
-    </center>
-    <aside><img src="/Imagens/apps.47141.13777372456800779.8d056be8-e7d1-4c7c-9d0f-de250958d645.5bf0b65f-b40a-46f9-913a-2a4bff9209ab" alt="">
-    <img src="/Imagens/images (4).jpeg"></aside>
+    <main class="pagina-jogo">
+        <section class="apresentacao" aria-labelledby="titulo-jogo">
+            <p class="sobretitulo">Luta • Esporte</p>
+            <h1 id="titulo-jogo">EA SPORTS <span>UFC 6</span></h1>
+            <div class="midias-jogo">
+                <div class="video-compra">
+                    <video class="video-jogo" controls preload="metadata" poster="images%20(4).jpeg" aria-label="Trailer de EA SPORTS UFC 6">
+                        <source src="videoplayback%20(1).mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeo.
+                    </video>
+                    <div class="acao-compra">
+                        <span class="preco-jogo">R$ 249,99</span>
+                        <button id="comprarJogo" type="button">Comprar agora</button>
+                    </div>
+                </div>
+                <div class="galeria-jogo" aria-label="Imagens de EA SPORTS UFC 6">
+                    <img class="capa-jogo" src="apps.47141.13777372456800779.8d056be8-e7d1-4c7c-9d0f-de250958d645.5bf0b65f-b40a-46f9-913a-2a4bff9209ab.jpg" alt="Arte de EA SPORTS UFC 6 com um lutador">
+                    <img class="cena-jogo" src="images%20(4).jpeg" alt="Dois lutadores disputam um combate no octógono">
+                </div>
+            </div>
+        </section>
+
+        <article class="descricao-jogo">
+            <h2>Sobre o jogo</h2>
+            <p><strong>UFC 6</strong> é um jogo de luta e MMA que coloca o jogador dentro do octógono para disputar combates intensos, estratégicos e realistas, reunindo alguns dos maiores lutadores do mundo. Com diferentes categorias de peso, estilos de luta e características individuais, cada atleta possui seus próprios pontos fortes e fracos, fazendo com que o jogador precise adaptar sua estratégia de acordo com o adversário.</p>
+            <p>Durante os combates, é possível utilizar uma grande variedade de técnicas, incluindo golpes de boxe, chutes, joelhadas, cotoveladas, quedas, clinches e técnicas de finalização. O sistema de combate exige precisão e bom controle dos movimentos, já que simplesmente atacar sem pensar pode deixar o lutador vulnerável aos contra-ataques. A defesa também possui um papel fundamental, permitindo bloquear golpes, esquivar-se de ataques e procurar o momento certo para responder.</p>
+            <p>Um dos principais destaques do jogo é o <strong>modo Carreira</strong>, no qual o jogador pode criar seu próprio lutador e acompanhar sua evolução desde o início da trajetória profissional. É possível desenvolver diferentes atributos e habilidades, participar de treinamentos, enfrentar adversários cada vez mais fortes e conquistar oportunidades para disputar grandes lutas. O objetivo final é alcançar o topo da categoria, conquistar o cinturão e construir uma carreira de sucesso dentro do UFC.</p>
+            <p>Além da Carreira, o jogo oferece diferentes formas de aproveitar os combates, como lutas rápidas, desafios, campeonatos e partidas contra outros jogadores. Cada modo proporciona uma experiência diferente, permitindo que o jogador escolha entre partidas mais casuais ou confrontos que exigem maior domínio das mecânicas de combate.</p>
+            <p>Os <strong>gráficos detalhados</strong>, as animações dos lutadores e os efeitos durante as lutas ajudam a criar uma experiência mais próxima de uma transmissão de MMA. Os movimentos dos personagens são acompanhados por diferentes reações e situações que podem acontecer durante o combate, fazendo com que cada luta tenha um ritmo próprio.</p>
+            <p>A estratégia também é essencial para vencer. O jogador precisa administrar sua resistência, escolher quando atacar, manter uma boa defesa e observar os padrões do adversário. Gastar energia demais no começo da luta pode ser um grande problema nos rounds seguintes, enquanto uma boa administração dos recursos pode permitir que o lutador tenha vantagem até o final. Uma decisão errada pode resultar em um nocaute ou finalização.</p>
+            <p>Com uma grande variedade de lutadores, estilos e possibilidades de combate, <strong>UFC 6</strong> busca oferecer uma experiência completa para os fãs de MMA e jogos de luta. O objetivo é dominar as diferentes técnicas, superar adversários cada vez mais difíceis, evoluir seu lutador e conquistar o título mundial, tornando-se o melhor competidor dentro do octógono.</p>
+        </article>
+    </main>
+    <script>
+        document.getElementById("comprarJogo").addEventListener("click", () => {
+            const chaveCarrinho = "playmash_cart";
+            let carrinho = [];
+
+            try {
+                carrinho = JSON.parse(localStorage.getItem(chaveCarrinho) || "[]");
+            } catch {
+                carrinho = [];
+            }
+
+            const jogo = carrinho.find((item) => item.id === "ufc-006");
+            if (jogo) {
+                jogo.qty = (Number(jogo.qty) || 1) + 1;
+            } else {
+                carrinho.push({
+                    id: "ufc-006",
+                    title: "UFC 6",
+                    price: 249.99,
+                    img: "ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp",
+                    qty: 1
+                });
+            }
+
+            localStorage.setItem(chaveCarrinho, JSON.stringify(carrinho));
+            window.location.href = "carrinho.html";
+        });
+    </script>
 </body>
 </html>
