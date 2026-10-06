@@ -9,24 +9,24 @@
 <body>
    <header class="header">
     <div class="logo-area">
-        <img id="logo" src="img logo.png" alt="Logo Playmash">
+        <img id="logo" src="/img logo.png" alt="Logo Playmash">
     </div>
     <div class="search-area">
         <input id="search" type="text" placeholder="Oque você procura...">
     </div>
     <nav class="menu" id="menu1">
         <button class="icon-button" aria-label="Biblioteca">
-            <img id="biblioteca" src="istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca de jogos">
+            <img id="biblioteca" src="/istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca de jogos">
         </button>
 
         <button class="icon-button" aria-label="Carrinho de compras">
-            <img id="carrinho"  src="carrinho.png" alt="carrinho de compras">
+            <img id="carrinho"  src="/carrinho.png" alt="carrinho de compras">
             
         </button>
     </nav>
 </header>
     <div class="conteiner">
-        <img id="promo" src="Captura de tela 2026-09-04 075431.png" alt="promoção">
+        <img id="promo" src="/Captura de tela 2026-09-04 075431.png" alt="promoção">
         <a id="preco">R$ 199,99</a>
 
 
@@ -69,7 +69,7 @@
     <!-- Botão que adiciona o jogo UFC ao carrinho -->
     <button id="ufc-button" class="cart-button">+ carrinho</button>
         
-        <img id="ufc" src="ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" alt="ufc 6">
+        <img id="ufc" src="/ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" alt="ufc 6">
         <a id="preco-ufc">R$ 249,99</a>
     </div>
 
@@ -78,7 +78,7 @@
         <!-- Botão que adiciona o jogo Valorant ao carrinho -->
         <button id="valorat-button" class="cart-button">+ carrinho</button>
         
-        <img id="valorant" src="valorant.webp" alt="valorant">
+        <img id="valorant" src="/valorant.webp" alt="valorant">
         <a id="preco-valorant">R$ gratuito</a>
     </div>
 
@@ -127,7 +127,7 @@
         button.addEventListener("click", () => {
             // Troca a imagem do carrinho para uma de aviso
             if (cartIcon) {
-                cartIcon.src = "aviso_carrinho.png";
+                cartIcon.src = "/aviso_carrinho.png";
             }
 
             // Troca o texto do botão para mostrar que o item já entrou no carrinho
@@ -139,22 +139,22 @@
 
             // Se for o botão da promoção, adiciona a promoção ao carrinho
             if (buttonId === "compra_promo") {
-                addToCart({ id: "promo-001", title: "Promoção Especial", price: 199.99, img: "Captura de tela 2026-09-04 075431.png" });
+                addToCart({ id: "promo-001", title: "Promoção Especial", price: 199.99, img: "/Captura de tela 2026-09-04 075431.png" });
             }
 
             // Se for o botão do UFC, adiciona o UFC ao carrinho
             if (buttonId === "ufc-button") {
-                addToCart({ id: "ufc-006", title: "UFC 6", price: 249.99, img: "ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" });
+                addToCart({ id: "ufc-006", title: "UFC 6", price: 249.99, img: "/ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" });
             }
 
             // Se for o botão do Valorant, adiciona o Valorant ao carrinho
             if (buttonId === "valorat-button") {
-                addToCart({ id: "valorant-001", title: "Valorant", price: 0.00, img: "valorant.webp" });
+                addToCart({ id: "valorant-001", title: "Valorant", price: 0.00, img: "/valorant.webp" });
             }
 
             // Se for o botão do GTA 6, adiciona o GTA 6 ao carrinho
             if (buttonId === "gta6-button") {
-                addToCart({ id: "gta6-001", title: "GTA 6", price: 399.99, img: "gta6.png" });
+                addToCart({ id: "gta6-001", title: "GTA 6", price: 399.99, img: "/gta6.png" });
             }
         });
     });
@@ -163,14 +163,14 @@
     if(searchInput){
         searchInput.addEventListener("focus", () => {
             searchInput.style.transition = "all 0.2s ease";
-            setTimeout(()=> location.href = "bpesquisa.html", 200);
+            setTimeout(()=> location.href = "/bpesquisa.html", 200);
         });
     }
 (function(){
         const libraryBtn = document.querySelector('#menu1 button[aria-label="Biblioteca"]');
         if(libraryBtn){
             libraryBtn.addEventListener('click', () => {
-                location.href = "biblioteca.html";
+                location.href = "/biblioteca.html";
             });
             libraryBtn.addEventListener('keydown', (e) => {
                 if(e.key === 'Enter' || e.key === ' ') {
@@ -183,7 +183,7 @@
         const cartBtn = document.querySelector('#menu1 button[aria-label="Carrinho de compras"]');
         if(cartBtn){
             cartBtn.addEventListener('click', () => {
-                location.href = "carrinho.html";
+                location.href = "/carrinho.html";
             });
             cartBtn.addEventListener('keydown', (e) => {
                 if(e.key === 'Enter' || e.key === ' ') {
