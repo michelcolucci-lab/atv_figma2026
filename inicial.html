@@ -4,45 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo(a) playmash</title>
-    <link rel="stylesheet" href="folha_inical.css">
+    <link rel="stylesheet" href="/Css/folha_inical.css">
 </head>
 <body>
    <header class="header">
     <div class="logo-area">
-        <img id="logo" src="img logo.png" alt="Logo Playmash">
+        <img id="logo" src="/Imagens/img logo.png" alt="Logo Playmash">
     </div>
     <div class="search-area">
         <input id="search" type="text" placeholder="Oque você procura...">
     </div>
     <nav class="menu" id="menu1">
         <button class="icon-button" aria-label="Biblioteca">
-            <img id="biblioteca" src="istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca de jogos">
+            <img id="biblioteca" src="/Imagens/istockphoto-2157188840-612x612-removebg-preview.png" alt="biblioteca de jogos">
         </button>
 
         <button class="icon-button" aria-label="Carrinho de compras">
-            <img id="carrinho"  src="carrinho.png" alt="carrinho de compras">
+            <img id="carrinho"  src="/Imagens/carrinho.png" alt="carrinho de compras">
             
-        </button>
-
-        <button class="icon-button" id="perfilBtn" type="button" aria-label="Perfil">
-            <img id="perfil" src="Captura_de_tela_2026-09-28_142303-removebg-preview.png" alt="Perfil">
         </button>
     </nav>
 </header>
     <div class="conteiner">
-        <img id="promo" src="Captura de tela 2026-09-04 075431.png" alt="promoção">
+        <img id="promo" src="/Imagens/Captura de tela 2026-09-04 075431.png" alt="promoção">
         <a id="preco">R$ 199,99</a>
 
 
-        <button id="compra_promo" type="button" onclick="trocarCarrinho()">Compre já</button>
-
-        <script>
-        
-            function trocarCarrinho() {
-                document.getElementById("carrinho").src = "aviso_carrinho.png";
-                document.getElementById("compra_promo").textContent = "Adicionado ao carrinho!";
-            }
-        </script>
+        <button id="compra_promo" class="cart-button" type="button">Compre já</button>
         
 
         <a id="franquia">Franquia da </a> <a id="rockstar">ROCKSTAR</a> 
@@ -75,67 +63,53 @@
     </div>
     
 <div class="loja_jogos">
+    <!-- Este bloco é um produto da loja -->
     <div id="ufc-id" class="ufc-conteiner">
           
-    <button id= "ufc-button" onclick="trocarCarrinhoufc()">+ carrinho</button>
-
-
-     <script>
+    <!-- Botão que adiciona o jogo UFC ao carrinho -->
+    <button id="ufc-button" class="cart-button">+ carrinho</button>
         
-            function trocarCarrinhoufc() {
-                document.getElementById("carrinho").src = "aviso_carrinho.png";
-                document.getElementById("ufc-button").textContent = "no carrinho!";
-            }
-        </script>
-        
-        <a href="index1.html" aria-label="Abrir página do UFC 6">
-            <img id="ufc" src="ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" alt="ufc 6">
-        </a>
+        <img id="ufc" src="/Imagens/ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" alt="ufc 6">
         <a id="preco-ufc">R$ 249,99</a>
     </div>
-    <div id="valorat-id" class="valorat-conteiner">
-        <button id= "valorat-button" onclick="trocarCarrinhovalorat()">+ carrinho</button>
 
-        <script>
+    <!-- Este bloco é outro produto da loja -->
+    <div id="valorat-id" class="valorat-conteiner">
+        <!-- Botão que adiciona o jogo Valorant ao carrinho -->
+        <button id="valorat-button" class="cart-button">+ carrinho</button>
         
-            function trocarCarrinhovalorat() {
-                document.getElementById("carrinho").src = "aviso_carrinho.png";
-                document.getElementById("valorat-button").textContent = "no carrinho!";
-            }
-        </script>
-        
-        <img id="valorant" src="valorant.webp" alt="valorant">
+        <img id="valorant" src="/Imagens/valorant.webp" alt="valorant">
         <a id="preco-valorant">R$ gratuito</a>
     </div>
-    <div id="gta6-id" class="gta6-conteiner">
-        <button id= "gta6-button" onclick="trocarCarrinhogta6()">+ carrinho</button>
 
-        <script>
+    <!-- Este bloco é outro produto da loja -->
+    <div id="gta6-id" class="gta6-conteiner">
+        <!-- Botão que adiciona o jogo GTA 6 ao carrinho -->
+        <button id="gta6-button" class="cart-button">+ carrinho</button>
         
-            function trocarCarrinhogta6() {
-                document.getElementById("carrinho").src = "aviso_carrinho.png";
-                document.getElementById("gta6-button").textContent = "no carrinho!";
-            }
-        </script>
-        
-        <img id="gta6" src="gta6.png" alt="gta 6">
+        <img id="gta6" src="/Imagens/gta6.png" alt="gta 6">
         <a id="preco-gta6">R$ 399,99</a>
 </div>
 </div>
 <script>
    
+    // Nome usado para guardar os itens do carrinho no navegador
     const CART_KEY = "playmash_cart";
 
+    // Lê o carrinho salvo no navegador
     function getCart(){
         try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); }
         catch { return []; }
     }
+
+    // Salva o carrinho no navegador
     function saveCart(cart){
         localStorage.setItem(CART_KEY, JSON.stringify(cart));
         const badge = document.getElementById('cartBadge');
         if(badge) badge.textContent = cart.reduce((s,i)=>s+(i.qty||1),0);
     }
 
+    // Adiciona um item ao carrinho
     function addToCart(item){
         const cart = getCart();
         const existing = cart.find(i => i.id === item.id);
@@ -145,19 +119,45 @@
         alert(`${item.title} adicionado ao carrinho`);
     }
 
-    
-    function trocarCarrinho(){
-        addToCart({ id: "promo-001", title: "Promoção Especial", price: 199.99, img: "Captura de tela 2026-09-04 075431.png" });
-    }
-    function trocarCarrinhoufc(){
-        addToCart({ id: "ufc-006", title: "UFC 6", price: 249.99, img: "ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" });
-    }
-    function trocarCarrinhovalorat(){
-        addToCart({ id: "valorant-001", title: "Valorant", price: 0.00, img: "valorant.webp" });
-    }
-    function trocarCarrinhogta6(){
-        addToCart({ id: "gta6-001", title: "GTA 6", price: 399.99, img: "gta6.png" });
-    }
+    // Pega o ícone do carrinho para poder trocar a imagem depois
+    const cartIcon = document.getElementById("carrinho");
+
+    // Para cada botão com a classe cart-button, executa esta ação ao clicar
+    document.querySelectorAll(".cart-button").forEach((button) => {
+        button.addEventListener("click", () => {
+            // Troca a imagem do carrinho para uma de aviso
+            if (cartIcon) {
+                cartIcon.src = "/Imagens/aviso_carrinho.png";
+            }
+
+            // Troca o texto do botão para mostrar que o item já entrou no carrinho
+            button.textContent = "no carrinho!";
+            button.disabled = true;
+
+            // Descobre qual botão foi apertado
+            const buttonId = button.id;
+
+            // Se for o botão da promoção, adiciona a promoção ao carrinho
+            if (buttonId === "compra_promo") {
+                addToCart({ id: "promo-001", title: "Promoção Especial", price: 199.99, img: "/Imagens/Captura de tela 2026-09-04 075431.png" });
+            }
+
+            // Se for o botão do UFC, adiciona o UFC ao carrinho
+            if (buttonId === "ufc-button") {
+                addToCart({ id: "ufc-006", title: "UFC 6", price: 249.99, img: "/Imagens/ufc-6-is-coming-june-19-v0-pq3o282pekxg1.webp" });
+            }
+
+            // Se for o botão do Valorant, adiciona o Valorant ao carrinho
+            if (buttonId === "valorat-button") {
+                addToCart({ id: "valorant-001", title: "Valorant", price: 0.00, img: "/Imagens/valorant.webp" });
+            }
+
+            // Se for o botão do GTA 6, adiciona o GTA 6 ao carrinho
+            if (buttonId === "gta6-button") {
+                addToCart({ id: "gta6-001", title: "GTA 6", price: 399.99, img: "/Imagens/gta6.png" });
+            }
+        });
+    });
 
     const searchInput = document.getElementById("search");
     if(searchInput){
@@ -167,10 +167,23 @@
         });
     }
 (function(){
+        const libraryBtn = document.querySelector('#menu1 button[aria-label="Biblioteca"]');
+        if(libraryBtn){
+            libraryBtn.addEventListener('click', () => {
+                location.href = "/Html/biblioteca.html";
+            });
+            libraryBtn.addEventListener('keydown', (e) => {
+                if(e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    libraryBtn.click();
+                }
+            });
+        }
+
         const cartBtn = document.querySelector('#menu1 button[aria-label="Carrinho de compras"]');
         if(cartBtn){
             cartBtn.addEventListener('click', () => {
-                location.href = "carrinho.html";
+                location.href = "/Html/carrinho.html";
             });
             cartBtn.addEventListener('keydown', (e) => {
                 if(e.key === 'Enter' || e.key === ' ') {
@@ -180,15 +193,6 @@
             });
         }
     })();
-
-    document.getElementById("perfilBtn").addEventListener("click", () => {
-        window.location.href = "confperfil.html";
-         document.getElementById("biblioteca").addEventListener("click", () => {
-        window.location.href = "biblioteca.html";
-    });
-</script>
-</body>
-</html>
 </script>
 </body>
 </html>
